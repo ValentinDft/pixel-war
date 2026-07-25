@@ -1,1 +1,1 @@
-npm test -- --watch=false --browsers=ChromeHeadless
+npm test -- --watch=false
