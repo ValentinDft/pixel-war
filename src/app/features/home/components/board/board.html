@@ -1,0 +1,27 @@
+<div class="board">
+  <div class="board__frame">
+    <div
+      class="board__canvas"
+      role="grid"
+      aria-label="Grille de pixels"
+      [attr.aria-rowcount]="size"
+      [attr.aria-colcount]="size"
+    >
+      @for (row of rows(); track row.y) {
+        <div class="board__row" role="row" [attr.aria-rowindex]="row.y + 1">
+          @for (cell of row.cells; track cell.index) {
+            <button
+              type="button"
+              role="gridcell"
+              class="board__cell"
+              [style.background-color]="cell.color"
+              [attr.aria-colindex]="cell.x + 1"
+              [attr.aria-label]="'Pixel ' + (cell.x + 1) + ', ' + (cell.y + 1)"
+              (click)="onCellClick(cell.x, cell.y)"
+            ></button>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>
