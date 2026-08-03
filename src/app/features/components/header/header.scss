@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+
+  &__title {
+    font-size: 40px;
+    font-family: 'Press Start 2P', system-ui;
+  }
+}
