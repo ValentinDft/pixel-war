@@ -1,6 +1,8 @@
 import { TestBed, type ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { PixelBoardService } from '@core/services/pixel-board.service';
+import { SupabaseService } from '@core/services/supabase.service';
+import { createSupabaseMock } from '@core/mocks/supabase.mock';
 
 import { ColorSelector } from './color-selector';
 
@@ -16,6 +18,7 @@ describe('ColorSelector', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ColorSelector],
+      providers: [{ provide: SupabaseService, useValue: createSupabaseMock().service }],
     }).compileComponents();
 
     board = TestBed.inject(PixelBoardService);
@@ -50,7 +53,7 @@ describe('ColorSelector', () => {
     swatches()[5].click();
     await fixture.whenStable();
 
-    expect(board.selectedColor()).toBe('#E50000');
+    expect(board.currentColor()).toBe('#E50000');
     expect(swatches()[5].getAttribute('aria-checked')).toBe('true');
   });
 

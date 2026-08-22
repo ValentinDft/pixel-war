@@ -9,16 +9,14 @@ import type { SwatchState } from './interfaces/color-selector.interface';
   styleUrl: './color-selector.scss',
 })
 export class ColorSelector {
-  private readonly pixelBoardService = inject(PixelBoardService);
+  private pixelBoardService = inject(PixelBoardService);
 
-  private readonly selectedColor = this.pixelBoardService.selectedColor;
-
-  protected readonly swatches = computed<SwatchState[]>(() => {
-    const selected = this.selectedColor();
+  protected swatches = computed<SwatchState[]>(() => {
+    const currentColor = this.pixelBoardService.currentColor();
 
     return PALETTE.map((swatch) => ({
       ...swatch,
-      selected: swatch.color === selected,
+      selected: swatch.color === currentColor,
     }));
   });
 

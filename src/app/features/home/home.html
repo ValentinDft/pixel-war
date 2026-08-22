@@ -2,4 +2,9 @@
   <pix-header />
   <pix-board />
   <pix-color-selector />
+  <p class="home__status" role="status">
+    @if (lastError(); as message) {
+      {{ message }}
+    }
+  </p>
 </div>

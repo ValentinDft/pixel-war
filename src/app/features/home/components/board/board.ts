@@ -8,12 +8,12 @@ import type { Row } from './interfaces/board.interface';
   styleUrl: './board.scss',
 })
 export class Board {
-  private readonly pixelBoardService = inject(PixelBoardService);
+  private pixelBoardService = inject(PixelBoardService);
 
-  protected readonly size = this.pixelBoardService.size;
+  protected size = this.pixelBoardService.size;
 
-  protected readonly rows = computed<Row[]>(() => {
-    const colors = this.pixelBoardService.colors();
+  protected rows = computed<Row[]>(() => {
+    const colors = this.pixelBoardService.board();
     const { size } = this;
 
     return Array.from({ length: size }, (_, y) => ({
