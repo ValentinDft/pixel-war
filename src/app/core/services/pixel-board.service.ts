@@ -3,7 +3,7 @@ import type { PaintedPixel } from '@core/models/pixel.interface';
 
 const BOARD_SIZE = 16;
 const EMPTY_COLOR = '#FFFFFF';
-const DEFAULT_COLOR = '#000000';
+const DEFAULT_COLOR = '#94E044';
 
 @Service()
 export class PixelBoardService {

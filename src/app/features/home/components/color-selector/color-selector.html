@@ -1,0 +1,14 @@
+<div class="color-selector" role="radiogroup" aria-label="Palette de couleurs">
+  @for (swatch of swatches(); track swatch.color) {
+    <button
+      type="button"
+      role="radio"
+      class="color-selector__swatch"
+      [class.color-selector__swatch--selected]="swatch.selected"
+      [style.background-color]="swatch.color"
+      [attr.aria-checked]="swatch.selected"
+      [attr.aria-label]="swatch.label"
+      (click)="onSelect(swatch.color)"
+    ></button>
+  }
+</div>

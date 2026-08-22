@@ -1,6 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { PixelBoardService } from '@core/services/pixel-board.service';
-import type { Row } from './board.interface';
+import type { Row } from './interfaces/board.interface';
 
 @Component({
   selector: 'pix-board',

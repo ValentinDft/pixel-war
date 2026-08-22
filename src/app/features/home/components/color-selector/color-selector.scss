@@ -1,0 +1,38 @@
+$swatch-size: 24px;
+$swatch-border: 3px;
+$ink: #222;
+
+.color-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 480px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 3px solid $ink;
+  box-shadow: 4px 4px 0 rgb(0 0 0 / 15%);
+
+  &__swatch {
+    box-sizing: content-box;
+    width: $swatch-size;
+    height: $swatch-size;
+    padding: 0;
+    border: $swatch-border solid #fff;
+    cursor: pointer;
+    appearance: none;
+
+    &:focus-visible {
+      outline: 2px solid $ink;
+      outline-offset: 2px;
+    }
+
+    &--selected {
+      border-color: $ink;
+    }
+
+    &:hover:not(&--selected) {
+      border-color: #b3b3b3;
+    }
+  }
+}
